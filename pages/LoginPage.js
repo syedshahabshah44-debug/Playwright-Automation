@@ -13,7 +13,7 @@ class LoginPage {
 
     // Actions
     async navigateToLogin() {
-        await this.page.goto('');
+        await this.page.goto('https://www.saucedemo.com/');
     }
 
     async enterUsername(username) {
