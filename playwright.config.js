@@ -30,7 +30,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Headed mode enable karne aur speed slow karne ke liye */
-    headless: false,
+    headless: true,
     launchOptions: {
       slowMo: 1000, // Har step ke beech 1 second (1000ms) ka delay aayega
     },
