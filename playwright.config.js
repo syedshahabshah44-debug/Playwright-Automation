@@ -29,6 +29,12 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
+    /* Headed mode enable karne aur speed slow karne ke liye */
+    headless: false,
+    launchOptions: {
+      slowMo: 1000, // Har step ke beech 1 second (1000ms) ka delay aayega
+    },
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -78,4 +84,3 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
