@@ -27,6 +27,16 @@ test.describe('Home Page Navigation Tests', () => {
 
         // 6. Click Cart Icon
         await homePage.clickCart();
+        await homePage.clickCheckout();
+        await homePage. homemenue();
+        await homePage. catalogmenue();
+        await homePage. blogmenue();
+        await homePage.aboutusmenue();
+        await homePage.wishlistmenue();
+        await homePage.referafriendmenue();
+        
+         
+
     });
 
 });
