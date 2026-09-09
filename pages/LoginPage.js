@@ -1,4 +1,4 @@
-// Header tablink scripts.
+// login functionality script
 const { expect } = require('@playwright/test');
 
 class LoginPage {
