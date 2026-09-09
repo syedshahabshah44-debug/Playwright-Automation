@@ -1,4 +1,4 @@
-// pages/LoginPage.js
+// Header tablink scripts.
 const { expect } = require('@playwright/test');
 
 class LoginPage {
@@ -28,17 +28,19 @@ class LoginPage {
         await this.loginButton.click();
     }
 
-    // Complete login flow
+    
     async login(username, password) {
         await this.enterUsername(username);
         await this.enterPassword(password);
         await this.clickLoginButton();
     }
 
-    // Verifications
+    
     async verifyLoginButtonVisible() {
         await expect(this.loginButton).toBeVisible();
     }
+
+
 }
 
 module.exports = { LoginPage };
