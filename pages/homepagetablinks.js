@@ -42,8 +42,15 @@ class HomePageTabLinks {
     async aboutusmenue() { await this.AboutUsmenue.click(); }
     async wishlistmenue() { await this.Wishlistmenue.click(); }
     async referafriendmenue() { await this.Referafriendmenue.click(); }
-    
-//
+
+/*
+3. Asynchronous / Event Handling Methods (Social Links)
+Kya ho raha hai: Naye browser tab me khulne wale external links (Facebook, Twitter, Instagram)
+ ko handle kiya ja raha hai.
+Kaun sa problem solve ho raha hai:
+Multi-Tab Race Condition / Hanging Issue: External links clickable hote hi naye window tab me khulte hain. 
+Agar Playwright sirf click kar de, toh naye page context ke ready hone tak execution hang ya timeout ho sakti hai.
+*/
     async Facebooktablink() {
         await this.facebookiconlink.scrollIntoViewIfNeeded();
         const [newPage] = await Promise.all([
