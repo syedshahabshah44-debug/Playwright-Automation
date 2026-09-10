@@ -29,6 +29,7 @@ test.describe('Home Page Navigation Tests', () => {
 // TC 2: Verify the icon link of home page
 test.describe('Home Page icon links Test', () => {
     test('Verify home page icon links when click', async ({ page }) => {
+        // this is Page object Model instance
         const homePage = new HomePageTabLinks(page);
         
         // 🔹 FIX 1: Page open karna zaroori tha

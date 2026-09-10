@@ -2,7 +2,12 @@ class HomePageTabLinks {
     constructor(page) {
         this.page = page;
 
-        // Top Navigation Locators
+        /* centralization to define locators:
+        ---------------------------------------
+        Centralization (Maintainability): Agar kal ko Shopify application ka UI design change hota hai 
+         toh aapko test files me change karne ki zaroorat nahi padegi. Aapko sirf is constructor me aakar
+         selector update karna hoga.
+        */
         this.firstTab = page.locator("div.seven.columns.offset-by-one.desktop a").nth(0);
         this.secondTab = page.locator("div.seven.columns.offset-by-one.desktop a").nth(1);
         this.fourthTab = page.locator("div.seven.columns.offset-by-one.desktop a").nth(3);
@@ -15,20 +20,16 @@ class HomePageTabLinks {
         this.AboutUsmenue = page.locator("li:nth-child(4) a:nth-child(1)");
         this.Wishlistmenue = page.locator("a[href='#sauce-show-wish-list']");
         this.Referafriendmenue = page.locator("a[href='#sauce-show-refer-friend']");
-
-        // Social Links
         this.facebookiconlink = page.locator("a[href*='facebook.com']");
         this.twittericonlink = page.locator("a[href*='twitter.com']");
         this.instagramiconlink = page.locator("a[href*='instagram.com']");
-        
-        // 🔹 FIX: RSS/WiFi Icon ke liye unique locator (.atom extension ya class target karein)
         this.wifiiconlink = page.locator("a[href$='.atom']");
     }
 
+    //2. Direct Action Methods (Simple Click Functions)
     async openPage() {
         await this.page.goto("https://sauce-demo.myshopify.com/");
     }
-
     async clickFirstTab() { await this.firstTab.click(); }
     async clickSecondTab() { await this.secondTab.click(); }
     async clickFourthTab() { await this.fourthTab.click(); }
@@ -41,7 +42,8 @@ class HomePageTabLinks {
     async aboutusmenue() { await this.AboutUsmenue.click(); }
     async wishlistmenue() { await this.Wishlistmenue.click(); }
     async referafriendmenue() { await this.Referafriendmenue.click(); }
-
+    
+//
     async Facebooktablink() {
         await this.facebookiconlink.scrollIntoViewIfNeeded();
         const [newPage] = await Promise.all([
