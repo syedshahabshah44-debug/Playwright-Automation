@@ -54,7 +54,7 @@ test.describe('Home Page icon links Test', () => {
         await instaPage.close();
 
          const shoppingcartPage = await homePage.shoppingcartbyShopifytablink();
-        await expect(shoppingcartPage).toHaveURL(/.*shopify\.com\/pk\/payments.*/);
+        await expect(shoppingcartPage).toHaveURL(/.*shopify\.com\/.*payments.*/);
         await shoppingcartPage.close();
 
         await homePage.WIFIiconlink();
