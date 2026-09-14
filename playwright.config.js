@@ -17,7 +17,7 @@ export default defineConfig({
   
   use: {
     // Headless ko false rakhein agar browser dekhna hai, warna true
-    headless: false,
+    headless: true,
     
     // FIX 1: slowMo ko 1000ms se kam karke 200ms kiya hai taakay delay ki waja se timeout na ho
     launchOptions: {
