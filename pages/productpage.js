@@ -5,6 +5,7 @@ class ProductPage {
   }
 
   async addToCart() {
+     await this.addToCartBtn.waitFor({ state: 'visible' });
     await this.addToCartBtn.click();
   }
 }
