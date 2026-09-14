@@ -4,6 +4,11 @@ const { HomePageTabLinks } = require('../pages/homepagetablinks');
 // TC 1: Verify the tablink of homepage
 test.describe('Home Page Navigation Tests', () => {
     test('Verify home page tab links and sign up navigation', async ({ page }) => {
+        /*class instance:Jab aap ek Class banate hain (jaise HomePageTabLinks), toh woh sirf ek Blueprint (Naksha) hoti hai.
+        Woh khud kuch nahi karti aur na hi memory me jagah leti hai.  Lekin jab aap 'new' keyword use karke use kisi variable 
+        me save karte hain Toh homePage us class ka Instance (ek live object) ban jata hai.
+         Ab aap is homePage ke zariye us class ke sabhi buttons, links aur forms ko access kar sakte hain. ye neechy jo mene
+         lika ha ye class instance ha*/
         const homePage = new HomePageTabLinks(page);
         
         await homePage.openPage();
@@ -48,6 +53,14 @@ test.describe('Home Page icon links Test', () => {
         await expect(instaPage).toHaveURL(/instagram.com/);
         await instaPage.close();
 
+         const shoppingcartPage = await homePage.shoppingcartbyShopifytablink();
+        await expect(shoppingcartPage).toHaveURL(/.*shopify\.com\/pk\/payments.*/);
+        await shoppingcartPage.close();
+
         await homePage.WIFIiconlink();
+        
+
+
+
     });
 });

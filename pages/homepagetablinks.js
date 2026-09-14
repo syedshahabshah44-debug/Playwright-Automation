@@ -24,6 +24,7 @@ class HomePageTabLinks {
         this.twittericonlink = page.locator("a[href*='twitter.com']");
         this.instagramiconlink = page.locator("a[href*='instagram.com']");
         this.wifiiconlink = page.locator("a[href$='.atom']");
+        this.ShoppingCartbyShopifytablink=page.locator("a[target='_blank'][rel='nofollow']");
     }
 
     //2. Direct Action Methods (Simple Click Functions)
@@ -78,9 +79,28 @@ Agar Playwright sirf click kar de, toh naye page context ke ready hone tak execu
         return newPage;
     }
 
+     async shoppingcartbyShopifytablink() {
+        await this.ShoppingCartbyShopifytablink.scrollIntoViewIfNeeded();
+
+        const [newPage] = await Promise.all([
+            this.page.context().waitForEvent('page'),
+            this.ShoppingCartbyShopifytablink.click()
+        ]);
+
+        // Naye tab ke fully load hone ka wait karein
+        await newPage.waitForLoadState(); 
+        return newPage;
+    }
+
     async WIFIiconlink() {
+        // 1. Element tak scroll karein
         await this.wifiiconlink.scrollIntoViewIfNeeded();
-        await this.wifiiconlink.click({ force: true });
+
+        // 2. Element ke visible hone ka wait karein
+        await this.wifiiconlink.waitFor({ state: 'visible' });
+
+        // 3. Click action
+        await this.wifiiconlink.click();
     }
 }
 
